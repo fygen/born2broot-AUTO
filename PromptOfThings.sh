@@ -6,27 +6,40 @@ prompt_user() {
     echo "$input"
 }
 
+# Function to prompt if wanted before executing a command
+function prompt_execute() {
+    read -p "Do you want to execute: $1? (y/n): " answer
+    if [ "$answer" != "${answer#[Yy]}" ]; then
+        eval "$1"
+    else
+        echo "Skipping..."
+    fi
+}
+
 # Installation
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt install sudo -y
 
+# ---TOEVO---
 # Adding user to sudo group
-your_username=$(prompt_user "Enter your username: ")
-sudo usermod -aG sudo $your_username
+# your_username=$(prompt_user "Enter your username: ")
+# sudo usermod -aG sudo $your_username
 
-# Installing tools
-sudo apt-get install git wget vim -y
-git --version
-
+# VIM Install tools
+sudo apt-get install git wget 
+prompt_execute "sudo apt-get install vim -y"
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+# Checker.sh
+# git --version
 
 # Installing SSH and configuring SSH service
 sudo apt-get install openssh-server -y
 sudo systemctl status ssh
-sudo service ssh restart
+sudo service ssh stop
 sudo sed -i 's/#Port 22/Port 4242/' /etc/ssh/sshd_config
-sudo service ssh restart
+sudo service ssh start
 
 # Installing and configuring UFW
 sudo apt-get install ufw -y
