@@ -26,29 +26,32 @@ sudo apt install sudo -y
 # your_username=$(prompt_user "Enter your username: ")
 # sudo usermod -aG sudo $your_username
 
-# VIM Install tools
+# Install tools
 sudo apt-get install git wget 
 prompt_execute "sudo apt-get install vim -y"
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
-# Checker.sh
-# git --version
-
 # Installing SSH and configuring SSH service
 sudo apt-get install openssh-server -y
 sudo systemctl status ssh
+
 sudo service ssh stop
 sudo sed -i 's/#Port 22/Port 4242/' /etc/ssh/sshd_config
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo service ssh start
 
 # Installing and configuring UFW
 sudo apt-get install ufw -y
 sudo ufw enable
-sudo ufw allow ssh
+
+sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1
+echo y | sudo ufw delete $(sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1) 
+echo y | sudo ufw delete $(sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1) 
 sudo ufw allow 4242
 
 # Set password policy
 sudo apt-get install libpam-pwquality -y
+
 sudo sed -i 's/password \[success=2 default=ignore\] pam_unix.so obscure sha512/password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=10/' /etc/pam.d/common-password
 sudo sed -i 's/password    requisite         pam_pwquality.so retry=3/password    requisite         pam_pwquality.so retry=3 lcredit =-1 ucredit=-1 dcredit=-1 maxrepeat=3 usercheck=0 difok=7 enforce_for_root/' /etc/pam.d/common-password
 sudo sed -i 's/PASS_MAX_DAYS 9999/PASS_MAX_DAYS 30/' /etc/login.defs
