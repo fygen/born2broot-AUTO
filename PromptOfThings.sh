@@ -16,23 +16,39 @@ function prompt_execute() {
     fi
 }
 
+# Function to prompt if somethings done before executing a command
 prompt_execute_if() {
     read -p "$1 (y/n)" answer
     if [ "$answer" != "${answer#[Yy]}" ]; then
         eval "$2"
     else
         echo "$1"
+        eval_if_exists "$3"
     fi
 } 
 
+# If another way has given then evaluate it 
+function eval_if_exists() {
+    if [ -n "$1" ]; then
+        eval "$1"
+    fi
+}
+
+# SOME CODEBLOCKS FOR SETTING TOGETHER
 set_sudo() {
-    $player = who | cut -d ' ' -f1
+    player=$(who | cut -d ' ' -f1)
     sudo usermod -aG sudo $player
     sudo usermod -aG $player sudo
 }
 
-# Pre-Installation
-prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sudo"
+create_user() {
+    read -p "Create a user with your 42 login:" log42
+    # $log42
+    echo "NOT IMPLEMENTED YET: CONTACT FYGEN FOR IMPLEMENTATION"
+}
+
+# Pre-installation
+prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sudo" "create_user"
 
 # Installation
 sudo apt-get update -y
