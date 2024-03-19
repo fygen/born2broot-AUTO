@@ -16,6 +16,24 @@ function prompt_execute() {
     fi
 }
 
+prompt_execute_if() {
+    read -p "$1 (y/n)" answer
+    if [ "$answer" != "${answer#[Yy]}" ]; then
+        eval "$2"
+    else
+        echo "$1"
+    fi
+} 
+
+set_sudo() {
+    $player = who | cut -d ' ' -f1
+    sudo usermod -aG sudo $player
+    sudo usermod -aG $player sudo
+}
+
+# Pre-Installation
+prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sudo"
+
 # Installation
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -24,7 +42,7 @@ sudo apt install sudo -y
 # ---TOEVO---
 # Adding user to sudo group
 # your_username=$(prompt_user "Enter your username: ")
-# sudo usermod -aG sudo $your_username
+
 
 # Install tools
 sudo apt-get install git wget 
@@ -53,7 +71,7 @@ sudo ufw allow 4242
 sudo apt-get install libpam-pwquality -y
 
 sudo sed -i 's/password \[success=2 default=ignore\] pam_unix.so obscure sha512/password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=10/' /etc/pam.d/common-password
-sudo sed -i 's/password    requisite         pam_pwquality.so retry=3/password    requisite         pam_pwquality.so retry=3 lcredit =-1 ucredit=-1 dcredit=-1 maxrepeat=3 usercheck=0 difok=7 enforce_for_root/' /etc/pam.d/common-password
+sudo sed -i 's/pam_pwquality.so retry=3/pam_pwquality.so retry=3 minlen=10 ucredit=-1 dcredit=-1 lcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root/' /etc/pam.d/common-password
 sudo sed -i 's/PASS_MAX_DAYS 9999/PASS_MAX_DAYS 30/' /etc/login.defs
 sudo sed -i 's/PASS_MIN_DAYS 0/PASS_MIN_DAYS 2/' /etc/login.defs
 sudo sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 7/' /etc/login.defs
