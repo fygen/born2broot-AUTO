@@ -36,29 +36,31 @@ function eval_if_exists() {
 
 # SOME CODEBLOCKS FOR SETTING TOGETHER
 set_sudo() {
+    sudo addgroup user42
     player=$(who | cut -d ' ' -f1)
     sudo usermod -aG sudo $player
-    sudo usermod -aG $player sudo
+    sudo usermod -aG user42 $player
 }
 
+reset_sudo() {
+    sudo delgroup user42
+    player=$(who | cut -d ' ' -f1)
+}
+
+    # sudo usermod -aG $player sudo
 create_user() {
-    read -p "Create a user with your 42 login:" log42
-    # $log42
+    read -p "Create a user with your 42 schools login:" login
+    # sudo adduser $login
     echo "NOT IMPLEMENTED YET: CONTACT FYGEN FOR IMPLEMENTATION"
 }
-
-# Pre-installation
-prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sudo" "create_user"
 
 # Installation
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt install sudo -y
 
-# ---TOEVO---
 # Adding user to sudo group
-# your_username=$(prompt_user "Enter your username: ")
-
+prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sudo" "create_user"
 
 # Install tools
 sudo apt-get install git wget 
@@ -92,15 +94,15 @@ sudo sed -i 's/PASS_MAX_DAYS 9999/PASS_MAX_DAYS 30/' /etc/login.defs
 sudo sed -i 's/PASS_MIN_DAYS 0/PASS_MIN_DAYS 2/' /etc/login.defs
 sudo sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 7/' /etc/login.defs
 
-# Create groups
-group_name1=$(prompt_user "Enter the name for the first group: ")
-group_name2=$(prompt_user "Enter the name for the second group: ")
-sudo groupadd $group_name1
-sudo groupadd $group_name2
+# # Create groups
+# group_name1=$(prompt_user "Enter the name for the first group: ")
+# group_name2=$(prompt_user "Enter the name for the second group: ")
+# sudo groupadd $group_name1
+# sudo groupadd $group_name2
 
-# Create user and assign into group
-sudo adduser new_username
-sudo usermod -aG $group_name1 $your_username
+# # Create user and assign into group
+# sudo adduser new_username
+# sudo usermod -aG $group_name1 $your_username
 sudo usermod -aG $group_name2 new_username
 
 # Configuring sudoers group
