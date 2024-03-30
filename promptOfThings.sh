@@ -88,7 +88,6 @@ apt-get update -y
 apt-get upgrade -y
 apt install gpm -y
 apt install sudo -y
-echo "$player ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/$player
 
 # Adding user to sudo group
 prompt_execute_if "Is this your 42 username: ${On_Red}$player${Color_Off}?(y/n)" "set_sudo" "create_user"
