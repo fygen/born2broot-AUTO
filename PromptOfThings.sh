@@ -90,9 +90,9 @@ sudo apt-get install libpam-pwquality -y
 
 sudo sed -i 's/password \[success=2 default=ignore\] pam_unix.so obscure sha512/password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=10/' /etc/pam.d/common-password
 sudo sed -i 's/pam_pwquality.so retry=3/pam_pwquality.so retry=3 minlen=10 ucredit=-1 dcredit=-1 lcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root/' /etc/pam.d/common-password
-sudo sed -i 's/PASS_MAX_DAYS 9999/PASS_MAX_DAYS 30/' /etc/login.defs
-sudo sed -i 's/PASS_MIN_DAYS 0/PASS_MIN_DAYS 2/' /etc/login.defs
-sudo sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 7/' /etc/login.defs
+sudo sed -i 's/PASS_MAX_DAYS\t9999/PASS_MAX_DAYS 30/' /etc/login.defs
+sudo sed -i 's/PASS_MIN_DAYS\t0/PASS_MIN_DAYS 2/' /etc/login.defs
+sudo sed -i 's/PASS_WARN_AGE\t7/PASS_WARN_AGE 7/' /etc/login.defs
 
 # # Create groups
 # group_name1=$(prompt_user "Enter the name for the first group: ")
@@ -106,12 +106,12 @@ sudo sed -i 's/PASS_WARN_AGE 7/PASS_WARN_AGE 7/' /etc/login.defs
 sudo usermod -aG $group_name2 new_username
 
 # Configuring sudoers group
-echo "$your_username ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh" | sudo tee -a /etc/sudoers
+echo "$player ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh" | sudo tee -a /etc/sudoers
 
-# Change hostname
-new_hostname=$(prompt_user "Enter the new hostname: ")
-sudo hostnamectl set-hostname $new_hostname
-sudo sed -i "s/127.0.1.1.*/127.0.1.1\t$new_hostname/" /etc/hosts
+# # Change hostname
+# new_hostname=$(prompt_user "Enter the new hostname: ")
+# sudo hostnamectl set-hostname $new_hostname
+# sudo sed -i "s/127.0.1.1.*/127.0.1.1\t$new_hostname/" /etc/hosts
 
 # # Crontab configuration
 # sudo apt-get install -y net-tools
