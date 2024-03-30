@@ -1,0 +1,3 @@
+netmask 255.255.0.0
+gateway 10.11.254.254
+dns-nameservers 10.11.254.254

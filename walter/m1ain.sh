@@ -1,4 +1,5 @@
 user=$(who | cut -d ' ' -f1)
+echo $user
 apt install gpm -y
 su -
 apt-get update -y
