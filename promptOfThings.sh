@@ -68,7 +68,7 @@ sudo apt install sudo -y
 
 # Adding user to sudo group
 player=$(who | cut -d ' ' -f1)
-prompt_execute_if "Is this your 42 username: ${Red}${On_White}$player${Color_Off}?(y/n)" "set_sudo" "create_user"
+prompt_execute_if "Is this your 42 username: ${BRed}${On_White}$player${Color_Off}?(y/n)" "set_sudo" "create_user"
 
 # Install tools
 sudo apt-get install git wget 
