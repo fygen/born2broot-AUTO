@@ -14,7 +14,7 @@ cd /var/log
 mkdir sudo
 cd sudo
 touch sudo.log
-echo "$user ALL=(ALL:ALL) ALL" >> /etc/sudoers
+echo "$user ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 pwd && ls -l | grep toS
 cat toSudoers.txt >> /etc/sudoers
 sudo visudo
