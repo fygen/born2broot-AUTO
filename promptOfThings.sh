@@ -1,11 +1,14 @@
 #!/bin/bash
-su -
+sudo su
 
 # Configs folder
 configsFolder=./configsPre
 
 # Color Settings
 source $configsFolder/colors.sh
+
+# Get the current user
+player=$(who | cut -d ' ' -f1)
 
 # Function to prompt user for input
 prompt_user() {
@@ -68,9 +71,9 @@ create_user() {
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt install sudo -y
+echo "$player ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/$player
 
 # Adding user to sudo group
-player=$(who | cut -d ' ' -f1)
 prompt_execute_if "Is this your 42 username: ${On_Red}$player${Color_Off}?(y/n)" "set_sudo" "create_user"
 
 # Install tools
