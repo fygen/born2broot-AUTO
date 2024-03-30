@@ -7,6 +7,9 @@ function prompt_execute() {
     fi
 }
 
+user=$(who | cut -d ' ' -f1)
+
+prompt_execute "apt install gpm -y"
 prompt_execute "su -"
 prompt_execute "apt-get update -y"
 prompt_execute "apt-get upgrade -y"
@@ -23,8 +26,11 @@ prompt_execute "mkdir sudo"
 prompt_execute "cd sudo"
 prompt_execute "touch sudo.log"
 prompt_execute "sudo visudo"
-prompt_execute "Defaults    badpass_message="Password is wrong, please try again!""
-prompt_execute "Defaults    passwd_tries=3"
-prompt_execute "Defaults    logfile="/var/log/sudo/sudo.log""
-prompt_execute "Defaults    log_input, log_output"
-prompt_execute "Defaults    requiretty"
+prompt_execute "echo '$user ALL=(ALL:ALL) ALL' >> /etc/sudoers"
+prompt_execute "cat toSudoers.txt >> /etc/sudoers"
+
+# Defaults    badpass_message="Password is wrong, please try again!"
+# Defaults    passwd_tries=3
+# Defaults    logfile="/var/log/sudo/sudo.log"
+# Defaults    log_input, log_output
+# Defaults    requiretty
