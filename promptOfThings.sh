@@ -66,14 +66,12 @@ function eval_if_exists() {
 # SOME CODEBLOCKS FOR SETTING TOGETHER
 set_sudo() {
     sudo addgroup user42
-    player=$(who | cut -d ' ' -f1)
     sudo usermod -aG sudo $player
     sudo usermod -aG user42 $player
 }
 
 reset_sudo() {
     sudo delgroup user42
-    player=$(who | cut -d ' ' -f1)
 }
 
     # sudo usermod -aG $player sudo
