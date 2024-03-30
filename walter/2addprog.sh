@@ -1,0 +1,6 @@
+prompt_execute "sudo apt install gpm -y"
+prompt_execute "sudo apt install openssh-server"
+prompt_execute "sudo apt-get install ufw"
+prompt_execute "sudo apt-get install libpam-pwquality"
+prompt_execute "sudo apt-get install git -y"
+prompt_execute "sudo apt-get install -y net-tools"
