@@ -137,7 +137,7 @@ sudo sed -i 's/PASS_WARN_AGE\t7/PASS_WARN_AGE 7/' /etc/login.defs
 sudo usermod -aG $group_name2 new_username
 
 # Configuring sudoers group
-echo "$player ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh" | sudo tee -a /etc/sudoers
+echo "$player ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh" >> /etc/sudoers.d/README
 
 # # Change hostname
 # new_hostname=$(prompt_user "Enter the new hostname: ")
