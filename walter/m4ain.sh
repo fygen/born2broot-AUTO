@@ -11,6 +11,7 @@ sudo sed -i 's/iface enp0s3 inet dhcp/iface enp0s3 inet static/' /etc/network/in
 echo "address $(ip a | awk '{print $2}' | grep 192 | cut -d/ -f1)" >> /etc/network/interfaces 
 echo toInterfaces.txt >> /etc/network/interfaces
 
+ip a # COPY THE IP ADDRESS WITH RIGHT CLICK MOUSE THEN PASTE IT IN THE NEXT COMMAND 
 sudo nano /etc/network/interfaces
 sudo systemctl restart networking
 sudo systemctl status networking
