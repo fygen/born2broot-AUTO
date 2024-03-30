@@ -65,6 +65,7 @@ prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sud
 # Install tools
 sudo apt-get install git wget 
 prompt_execute "sudo apt-get install vim -y"
+sudo apt install zsh -y
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # Installing SSH and configuring SSH service
