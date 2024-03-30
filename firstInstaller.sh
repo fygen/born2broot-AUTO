@@ -1,2 +1,2 @@
-sudo adduser sudo $(who | cut -d ' ' -f1)
+sudo adduser $(who | cut -d ' ' -f1) sudo 
 
