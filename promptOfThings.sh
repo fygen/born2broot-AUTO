@@ -1,4 +1,5 @@
 #!/bin/bash
+su -
 
 # Configs folder
 configsFolder=./configsPre
