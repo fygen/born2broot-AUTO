@@ -1,5 +1,21 @@
 #!/bin/bash
-sudo su
+
+# This script is a prompt based script that will help you to configure your system
+# according to the 42 school requirements. It will help you to configure your system
+# with the following settings:
+# - Add user to sudo group
+# - Install tools like git, vim, zsh
+# - Install and configure SSH
+# - Install and configure UFW
+# - Set password policy
+# - Create groups
+# - Create user and assign into group
+# - Configure sudoers group
+# - Change hostname
+# - Crontab configuration
+# - Install necessary tools
+# - Make monitoring.sh executable
+# - Add cron job
 
 # Configs folder
 configsFolder=./configsPre
