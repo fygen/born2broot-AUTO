@@ -60,7 +60,8 @@ sudo apt-get upgrade -y
 sudo apt install sudo -y
 
 # Adding user to sudo group
-prompt_execute_if "Did you added username when installing debian?(y/n)" "set_sudo" "create_user"
+player=$(who | cut -d ' ' -f1)
+prompt_execute_if "Is this your 42 username: $player?(y/n)" "set_sudo" "create_user"
 
 # Install tools
 sudo apt-get install git wget 
