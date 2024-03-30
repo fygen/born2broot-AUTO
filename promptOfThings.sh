@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Color Settings
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # Function to prompt user for input
 prompt_user() {
     read -p "$1" input
@@ -18,7 +22,8 @@ function prompt_execute() {
 
 # Function to prompt if somethings done before executing a command
 prompt_execute_if() {
-    read -p "$1 (y/n)" answer
+    echo "$1"
+    read -p " (y/n)" answer
     if [ "$answer" != "${answer#[Yy]}" ]; then
         eval "$2"
     else
