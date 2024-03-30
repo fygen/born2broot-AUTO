@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configs folder
-configsFolder=/configsPre/
+configsFolder=./configsPre
 
 # Color Settings
 source $configsFolder/colors.sh
