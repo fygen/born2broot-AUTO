@@ -8,13 +8,15 @@ source $configsFolder/colors.sh
 
 # Function to prompt user for input
 prompt_user() {
-    read -p "$1" input
+    echo -en "$1"
+    read input
     echo "$input"
 }
 
 # Function to prompt if wanted before executing a command
 function prompt_execute() {
-    read -p "Do you want to execute: $1? (y/n): " answer
+    echo -en "Do you want to execute: ${On_Purple}$1${Color_Off}? (y/n): " 
+    read answer
     if [ "$answer" != "${answer#[Yy]}" ]; then
         eval "$1"
     else
