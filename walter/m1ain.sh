@@ -15,5 +15,6 @@ mkdir sudo
 cd sudo
 touch sudo.log
 echo "$user ALL=(ALL:ALL) ALL" >> /etc/sudoers
-cat ./toSudoers.txt >> /etc/sudoers
+pwd && ls -l | grep toS
+cat toSudoers.txt >> /etc/sudoers
 sudo visudo
