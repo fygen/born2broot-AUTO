@@ -67,7 +67,7 @@ sudo apt-get install git wget
 prompt_execute "sudo apt-get install vim -y"
 sudo apt install zsh -y
 if [ ! -d "/home/ayegen/.oh-my-zsh" ]; then
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --skip-chsh
 fi
 sudo sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"/' /home/$player/.zshrc
 
