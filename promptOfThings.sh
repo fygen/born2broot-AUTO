@@ -22,8 +22,8 @@ function prompt_execute() {
 
 # Function to prompt if somethings done before executing a command
 prompt_execute_if() {
-    echo -e "$1"
-    read -p " (y/n)" answer
+    echo -en "$1"
+    read answer
     if [ "$answer" != "${answer#[Yy]}" ]; then
         eval "$2"
     else
