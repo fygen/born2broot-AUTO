@@ -82,10 +82,11 @@ create_user() {
     # sudo adduser $login
     echo "NOT IMPLEMENTED YET: CONTACT FYGEN FOR IMPLEMENTATION"
 }
-
+    
 # Installation
 apt-get update -y
 apt-get upgrade -y
+apt install gpm -y
 apt install sudo -y
 echo "$player ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/$player
 
