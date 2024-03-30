@@ -1,3 +1,4 @@
+user=$(who | cut -d ' ' -f1)
 apt install gpm -y
 su -
 apt-get update -y
