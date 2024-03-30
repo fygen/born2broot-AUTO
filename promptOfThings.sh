@@ -94,7 +94,7 @@ prompt_execute_if "Is this your 42 username: ${On_Red}$player${Color_Off}?(y/n)"
 sudo apt-get install git wget 
 prompt_execute "sudo apt-get install vim -y"
 sudo apt install zsh -y
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --skip-chsh
+sh -c --skip-chsh "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
 # sudo sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"/' /home/$player/.zshrc
 sudo sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"/' /root/.zshrc
 
