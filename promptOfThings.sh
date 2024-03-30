@@ -67,7 +67,7 @@ sudo apt-get install git wget
 prompt_execute "sudo apt-get install vim -y"
 sudo apt install zsh -y
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-exit
+# exit
 sudo sed 's/ZSH_THEME="robbyrussell"/ZSH_THEME="bira"/' /home/$player/.zshrc
 
 # Installing SSH and configuring SSH service
