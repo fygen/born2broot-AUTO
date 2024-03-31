@@ -14,8 +14,12 @@ $user=$(who | cut -d ' ' -f1)
 # Source the functions file
 # source funcs.sh
 function enter_file(){
+    # while IFS= read -r line; do
+    #     echo_execute "$line"
+    # done < "$1"
     while IFS= read -r line; do
-        echo_execute "$line"
+        echo_execute "$line" &
+        wait $!
     done < "$1"
 }
 
