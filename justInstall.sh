@@ -14,11 +14,9 @@ $user=$(who | cut -d ' ' -f1)
 # Source the functions file
 # source funcs.sh
 function enter_file(){
-    # Read each line from the file using a for loop
-    IFS=$'\n'  # Set IFS to newline
-    for line in $(<"$1"); do
+    while IFS= read -r line; do
         echo_execute "$line"
-    done
+    done < "$1"
 }
 
 
