@@ -1,6 +1,6 @@
 #!/bin/bash
 arc=$(uname -a)
-pcpu=$(awk '/cpu cores/ {print $4}' /proc/cpuinfo )
+pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)
 vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)
 fram=$(free -m | grep Mem: | awk '{print $2}')
 uram=$(free -m | grep Mem: | awk '{print $3}')
