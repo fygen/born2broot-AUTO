@@ -9,5 +9,6 @@ sudo sed -i 's/PASS_WARN_AGE\t7/PASS_WARN_AGE 7/' /etc/login.defs
 # PASS_MAX_DAYS 30 > PASS_MIN_DAYS 2 > PASS_WARN_AGE 7
 sudo nano /etc/login.defs
 sudo chage --maxdays 30 --mindays 2 --warndays 7 $user
+sudo chage --maxdays 30 --mindays 2 --warndays 7 root
 sudo reboot
 chage -l $user
