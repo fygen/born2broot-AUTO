@@ -12,8 +12,9 @@ sudo mysql -u root -p
 sudo apt install php-mysql
 cd /tmp && wget https://wordpress.org/latest.tar.gz
 tar -xvf latest.tar.gz
-cp -R wordpress /var/www/html/
-chown -R www-data:www-data /var/www/html/wordpress/
-chmod -R 755 /var/www/html/wordpress/
+sudo cp -R /tmp/wordpress /var/www/html/
+sudo cp wp-config.php /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
 # vsftp FTP server for service
 sudo apt install vsftpd
