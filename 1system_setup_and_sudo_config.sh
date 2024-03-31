@@ -7,10 +7,10 @@ apt-get update -y
 apt-get upgrade -y
 apt install sudo
 echo "$(sudo --version)"
-usermod -aG sudo $user
+sudo usermod -aG sudo $user
 getent group sudo
 sudo groupadd user42
-usermod -aG user42 $user
+sudo usermod -aG user42 $user
 getent group user42
 cd /var/log
 mkdir sudo
