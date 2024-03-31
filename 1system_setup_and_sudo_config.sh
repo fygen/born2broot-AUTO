@@ -2,9 +2,11 @@
 user=$(who | cut -d ' ' -f1)
 echo $user
 apt install gpm -y
+echo "$(gpm --version)"
 apt-get update -y
 apt-get upgrade -y
 apt install sudo
+echo "$(sudo --version)"
 usermod -aG sudo $(who | cut -d ' ' -f1)
 getent group sudo
 sudo groupadd user42

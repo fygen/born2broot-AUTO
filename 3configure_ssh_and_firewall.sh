@@ -4,6 +4,7 @@ sudo service ssh stop
 sudo sed -i 's/#Port 22/Port 4242/' /etc/ssh/sshd_config
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo service ssh start
+echo "starting service ssh" 
 sudo nano /etc/ssh/sshd_config
 sudo service ssh restart
 sudo ufw enable
