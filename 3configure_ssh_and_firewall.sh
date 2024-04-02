@@ -10,8 +10,8 @@ sudo service ssh restart
 sudo ufw enable
 sudo ufw status numbered
 sudo ufw allow ssh
-echo y | sudo ufw delete $(sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1) 
-echo y | sudo ufw delete $(sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1) 
+sudo ufw delete $(sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1)  
+sudo ufw delete $(sudo ufw status numbered | awk '/22/{print $2}' | cut -d] -f 1) 
 sudo ufw status numbered
 sudo ufw allow 4242
 sudo ufw status numbered

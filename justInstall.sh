@@ -18,8 +18,7 @@ function enter_file(){
     #     echo_execute "$line"
     # done < "$1"
     while IFS= read -r line; do
-        echo_execute "$line" &
-        wait $!
+        echo_execute "$line" 
     done < "$1"
 }
 
