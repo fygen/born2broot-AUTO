@@ -17,7 +17,7 @@ function echo_execute() {
     fi
 }
 
-$user=$(who | cut -d ' ' -f1)
+user=$(who | cut -d ' ' -f1)
 
 # Source the functions file
 # source funcs.sh
