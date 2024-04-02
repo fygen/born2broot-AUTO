@@ -13,10 +13,11 @@ function echo_execute() {
     else
         read answer # Automatically accept 'yes'
     fi
-    if [ "$answer" != "${answer#[Yy]}" ]; then
+    if [ "$answer" == "${answer#[Yy]}" ]; then
         eval "$1"
     else
-        echo "Skipping..."
+        read 
+        eval "$1"
     fi
 }
 
