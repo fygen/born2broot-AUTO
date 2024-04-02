@@ -1,5 +1,5 @@
 workdir=$(pwd)
-downdir=$(/tmp)
+downdir="/var/www/html/"
 sudo apt install lighttpd
 sudo apt install php
 sudo apt install php-cgi
