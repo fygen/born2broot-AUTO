@@ -9,7 +9,7 @@ function prompt_execute() {
     fi
 }
 
-$user=$(who | cut -d ' ' -f1)
+user=$(who | cut -d ' ' -f1 | awk 'NR==1' )
 
 # Source the functions file
 # source funcs.sh

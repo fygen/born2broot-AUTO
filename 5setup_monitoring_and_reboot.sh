@@ -1,4 +1,4 @@
-user=$(who | cut -d ' ' -f1)
+user=$(who | cut -d ' ' -f1 | awk 'NR==1' )
 cp monitoring.sh /usr/local/bin/monitoring.sh
 chmod 777 /usr/local/bin/monitoring.sh
 # Access the VM by Ubuntu terminal

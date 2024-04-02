@@ -1,4 +1,4 @@
-user=$(who | cut -d ' ' -f1)
+user=$(who | cut -d ' ' -f1 | awk 'NR==1' )
 sudo sed -i 's/password \[success=2 default=ignore\] pam_unix.so obscure sha512/password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=10/' /etc/pam.d/common-password
 sudo sed -i 's/pam_pwquality.so retry=3/pam_pwquality.so retry=3 minlen=10 ucredit=-1 dcredit=-1 lcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root/' /etc/pam.d/common-password
 echo "common-password updated?"
