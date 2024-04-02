@@ -12,5 +12,6 @@ echo "login.defs updated?"
 sudo nano /etc/login.defs
 sudo chage --maxdays 30 --mindays 2 --warndays 7 $user
 sudo chage --maxdays 30 --mindays 2 --warndays 7 root
+chage -l root
+chage -l $(who | cut -d ' ' -f1)
 # sudo reboot
-chage -l $user
