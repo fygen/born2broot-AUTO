@@ -9,7 +9,7 @@ fi
 
 function echo_execute() {
     if [ "$autoInstall" == "y" ]; then
-        answer = "y"
+        answer="y"
     else
         read answer # Automatically accept 'yes'
     fi
