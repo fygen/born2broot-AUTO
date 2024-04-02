@@ -1,19 +1,19 @@
 #ENSURE YOU ARE: su -
-user=$(who | cut -d ' ' -f1)
+user=$(who | cut -d ' ' -f1 | awk 'NR==1' )
 echo $user
 apt install gpm -y
+gpm -version
 apt-get update -y
 apt-get upgrade -y
 apt install sudo
-usermod -aG sudo $(who | cut -d ' ' -f1)
+sudo --version | grep version --color
+adduser $user sudo 
 getent group sudo
-sudo groupadd user42
-usermod -aG user42 $(who | cut -d ' ' -f1)
+groupadd user42
+adduser $user user42 
 getent group user42
-cd /var/log
-mkdir sudo
-cd sudo
-touch sudo.log
+mkdir -p /var/log/sudo
+touch /var/log/sudo/sudo.log
 echo "$user ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 pwd && ls -l | grep toS
 cat toSudoers.txt >> /etc/sudoers
