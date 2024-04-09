@@ -27,7 +27,7 @@ To FINISH EASILY the Born2Broot project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fygen/preseed.git
+   git clone https://github.com/fygen/born2broot-AUTO.git
    ```
 
 2. Navigate to the project directory:
