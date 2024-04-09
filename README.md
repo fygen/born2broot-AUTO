@@ -1,4 +1,4 @@
-# Born2Broot Project: 
+# AUTO-RIZE OTO-MATIZE Born2Broot Project: 
 *  120 POINTS. If you can learn all this.
 *  Setup in 5 minutes.
 *  ALL SETUPS with WORDPRESS..
