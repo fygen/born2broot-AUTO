@@ -1,4 +1,7 @@
-# Born2Broot Project: 120 POINT. In 5 minutes. ALL SETUPS TO WORDPRESS..
+# Born2Broot Project: 
+*  120 POINTS. If you can learn all this.
+*  Setup in 5 minutes.
+*  ALL SETUPS with WORDPRESS..
 
 ## Overview
 This project is part of the 42Cursus curriculum, specifically designed for the Born2Code program. Born2Broot is an introduction to system administration, where the goal is to set up a basic Linux system from scratch, configure it, create Wordpress and connect databases.
