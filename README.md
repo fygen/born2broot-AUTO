@@ -1,3 +1,5 @@
+# Türkçe Kurulum için --> [![tr](https://img.shields.io/badge/lang-tr-red.svg)](https://github.com/fygen/born2broot-AUTO/blob/master/README-TR.md)
+
 # AUTO-RIZE OTO-MATIZE Born2Broot Project: 
 *  120 POINTS. If you can learn all this.
 *  Setup in 5 minutes.
