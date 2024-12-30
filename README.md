@@ -1,5 +1,9 @@
 # Türkçe Kurulum için --> [![tr](https://img.shields.io/badge/lang-tr-red.svg)](https://github.com/fygen/born2broot-AUTO/blob/master/README-TR.md)
 
+# THERE IS A PERFECT AUTOMATION INCLUDING PRESEED VERSION AVAILABLE IN LINK BELOW
+https://gitlab.com/murmurians/born2auto
+https://medium.com/@yzeybek13/born2auto-automating-debian-server-setup-with-preseed-files-and-scripting-d2007a1d80ed
+
 # AUTO-RIZE OTO-MATIZE Born2Broot Project: 
 *  120 POINTS. If you can learn all this.
 *  Setup in 5 minutes.
